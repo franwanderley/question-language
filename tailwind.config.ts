@@ -12,7 +12,7 @@ const config: Config = {
         "main": "#313e51",
         "secondary": "#3c4d67",
         "button": "#a729f6",
-        "text": "#92a1b8"
+        "paragraph": "#92a1b8"
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

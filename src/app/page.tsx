@@ -8,16 +8,16 @@ export default function Home() {
       <header className="w-screen flex flex-row justify-end p-6">
         <div className="basis-1/5 flex justify-end">Theme</div>
       </header>
-      <main className="flex flex-row justify-between p-6 mt-3">
-        <div className="basis-2/4 flex-col">
-        <h1 className="font-normal text-4xl placeholder-cyan-50">Welcome to the <b className="w-full">Front-End Quiz</b></h1>
-        <p className="text-sm text mt-4 text-center">Pick a subject to get started.</p>
+      <main className="flex flex-row justify-between p-8 mt-3">
+        <div className="basis-2/4 flex-col pl-16">
+        <h1 className="font-normal text-4xl text-left placeholder-cyan-50">Welcome to the <b className="block">Front-End Quiz</b></h1>
+        <p className="text-sm text-paragraph mt-4 text-left">Pick a subject to get started.</p>
         </div>
         <div className="basis-2/4">
-          <ButtonOption icon="public\imgs\css.PNG" text="css" action={() => {}} />
-          <ButtonOption icon="public\imgs\css.PNG" text="html" action={() => {}} />
-          <ButtonOption icon="public\imgs\css.PNG" text="js" action={() => {}} />
-          <ButtonOption icon="public\imgs\css.PNG" text="java" action={() => {}} />
+          <ButtonOption icon="https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/html.png" text="html" action={() => {}} />
+          <ButtonOption icon="https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/css.png" text="css" action={() => {}} />
+          <ButtonOption icon="https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/js.PNG" text="js" action={() => {}} />
+          <ButtonOption icon="https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/java.svg" text="java" action={() => {}} />
         </div>
       </main>
     </div>
