@@ -2,8 +2,32 @@
 
 import { ButtonOption } from "@/components/ButtonOption";
 import { ToggleTheme } from "@/components/Theme";
+import { useEffect, useState } from "react";
+
+interface Language {
+  id: number;
+  name: string;
+  icon: string;
+  questions: {
+    id: number;
+    name: string;
+    correct: number;
+    options: {
+      id: number;
+      name: string;
+    }[];
+  }[];
+}
 
 export default function Home() {
+  const [languages, setLanguages] = useState<Language[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3333/language")
+     .then((response) => response.json())
+     .then((data) => setLanguages(data));
+  }, []);
+
   return (
     <div className="flex min-h-screen flex-col flex-start bg-main">
       <header className="w-screen flex flex-row justify-end p-12">
@@ -17,10 +41,9 @@ export default function Home() {
         <p className="text-sm text-paragraph mt-4 text-left">Pick a subject to get started.</p>
         </div>
         <div className="basis-2/4">
-          <ButtonOption icon="https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/html.png" text="html" action={() => {}} />
-          <ButtonOption icon="https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/css.png" text="css" action={() => {}} />
-          <ButtonOption icon="https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/js.PNG" text="js" action={() => {}} />
-          <ButtonOption icon="https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/java.jpg" text="java" action={() => {}} />
+          {languages?.map(lan => (
+            <ButtonOption key={lan?.id} icon={lan?.icon} text={lan?.name} action={() => {}} />
+          ))}
         </div>
       </main>
     </div>
