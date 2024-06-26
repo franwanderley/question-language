@@ -25,6 +25,19 @@
                "options": []
             }
          ]
+      },
+      {
+         "id": 3,
+         "name": "JS",
+         "icon": "https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/js.PNG",
+         "questions": [
+            {
+               "id": 3,
+               "name": "What is javascript?",
+               "correct": 0,
+               "options": []
+            }
+         ]
       }
    ]
 }

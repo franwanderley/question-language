@@ -2,6 +2,7 @@
 
 import { ButtonOption } from "@/components/ButtonOption";
 import { ToggleTheme } from "@/components/Theme";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface Language {
@@ -20,6 +21,7 @@ interface Language {
 }
 
 export default function Home() {
+  const router = useRouter();
   const [languages, setLanguages] = useState<Language[]>([]);
 
   useEffect(() => {
@@ -42,7 +44,7 @@ export default function Home() {
         </div>
         <div className="basis-2/4">
           {languages?.map(lan => (
-            <ButtonOption key={lan?.id} icon={lan?.icon} text={lan?.name} action={() => {}} />
+            <ButtonOption key={lan?.id} icon={lan?.icon} text={lan?.name} action={() => router.push(`/question/${lan.id}`)} />
           ))}
         </div>
       </main>
