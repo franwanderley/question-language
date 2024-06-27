@@ -34,7 +34,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col flex-start bg-main">
       <header className="w-screen flex flex-row justify-end p-12">
         <div className="basis-1/5 flex justify-end">
-          <ToggleTheme theme="" />
+          <ToggleTheme theme={true} />
         </div>
       </header>
       <main className="flex flex-row justify-between p-12 mt-3">
@@ -44,7 +44,7 @@ export default function Home() {
         </div>
         <div className="basis-2/4">
           {languages?.map(lan => (
-            <ButtonOption key={lan?.id} icon={lan?.icon} text={lan?.name} action={() => router.push(`/question/${lan.id}`)} />
+            <ButtonOption marked={false} key={lan?.id} icon={lan?.icon} text={lan?.name} action={() => router.push(`/question/${lan.id}`)} />
           ))}
         </div>
       </main>

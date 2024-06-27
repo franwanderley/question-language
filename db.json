@@ -39,22 +39,22 @@
                   {
                      "id": 0,
                      "name": "It is a hight-level programming language",
-                     "icon": ""
+                     "icon": "https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/optionA.PNG"
                   },
                   {
                      "id": 1,
                      "name": "It is a machine language",
-                     "icon": ""
+                     "icon": "https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/optionB.PNG"
                   },
                   {
                      "id": 2,
                      "name": "It is a low-level programming language",
-                     "icon": ""
+                     "icon": "https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/optionC.PNG"
                   },
                   {
                      "id": 3,
                      "name": "It is a low-level assembly language",
-                     "icon": ""
+                     "icon": "https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/optionD.PNG"
                   }
                   
                ]
@@ -67,22 +67,22 @@
                   {
                      "id": 0,
                      "name": "Test Option 1",
-                     "icon": ""
+                     "icon": "https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/optionA.PNG"
                   },
                   {
                      "id": 1,
                      "name": "Test Option 2",
-                     "icon": ""
+                     "icon": "https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/optionB.PNG"
                   },
                   {
                      "id": 2,
                      "name": "Test Option 3",
-                     "icon": ""
+                     "icon": "https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/optionC.PNG"
                   },
                   {
                      "id": 3,
                      "name": "Test Option 4",
-                     "icon": ""
+                     "icon": "https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/optionD.PNG"
                   } 
                ]
             }

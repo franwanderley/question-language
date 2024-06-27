@@ -1,10 +1,10 @@
 import { MoonIcon, SunIcon } from "@heroicons/react/16/solid";
 
-export const ToggleTheme = ({ theme  }: { theme: string }) => {
+export const ToggleTheme = ({ theme  }: { theme: boolean }) => {
    return (
       <div>
          <label className="inline-flex items-center cursor-pointer">
-            <input type="checkbox" value="" className="sr-only peer" />
+            <input type="checkbox" checked={theme} className="sr-only peer" />
             <span className="mr-3 text-sm font-medium">
                <SunIcon className="size-4 text-white-500" />
             </span>
