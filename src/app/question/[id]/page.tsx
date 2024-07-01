@@ -2,6 +2,7 @@
 
 import { ButtonOption } from "@/components/ButtonOption";
 import { ToggleTheme } from "@/components/Theme";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface Language {
@@ -22,6 +23,7 @@ interface Language {
 
 export default function Question({ params }: { params: { id: number } }) {
   let countdownTimeout: NodeJS.Timeout;
+  const router = useRouter();
   const [language, setLanguage] = useState<Language>();
   const [time, setTime] = useState(60);
   const [countQuestion, setCountQuestion] = useState(0);
@@ -69,28 +71,45 @@ export default function Question({ params }: { params: { id: number } }) {
           <ToggleTheme theme={true} />
         </div>
       </header>
-      {question && (
+      {countQuestion < (language?.questions?.length || 0) && question ? (
         <main className="flex flex-row justify-between p-12 mt-3">
-        <div className="basis-2/4 flex-col pl-10 mr-5">
-          <p className="text-xs text-paragraph mt-4 text-left mb-3">{`Question ${countQuestion + 1} of ${language?.questions?.length}`} </p>
-          <h3 className="font-normal text-3xl text-left placeholder-cyan-50">{question?.name}</h3>
-          <div className="w-96 bg-secondary p-1 mt-10 rounded-xl">
-            <div className="bg-button p-1 rounded-xl" style={{width: `${time/60 * 100}%`}}/>
+          <div className="basis-2/4 flex-col pl-10 mr-5">
+            <p className="text-xs text-paragraph mt-4 text-left mb-3">{`Question ${countQuestion + 1} of ${language?.questions?.length}`} </p>
+            <h3 className="font-normal text-3xl text-left placeholder-cyan-50">{question?.name}</h3>
+            <div className="w-96 bg-secondary p-1 mt-10 rounded-xl">
+              <div className="bg-button p-1 rounded-xl" style={{width: `${time/60 * 100}%`}}/>
+            </div>
           </div>
-        </div>
-        <div className="basis-2/4">
-          {question?.options?.map(option => (
-            <ButtonOption 
-              marked={optionSelected === option?.id} 
-              key={option?.id} 
-              icon={option?.icon} 
-              text={option?.name} 
-              action={() => setOptionSelected(option?.id)} 
-            />
-          ))}
-          <button className="w-full bg-button rounded-xl p-3 font-semibold cursor-pointer" onClick={sendOption}>Submit answer</button>
-        </div>
-      </main>
+          <div className="basis-2/4">
+            {question?.options?.map(option => (
+              <ButtonOption 
+                marked={optionSelected === option?.id} 
+                key={option?.id} 
+                icon={option?.icon} 
+                text={option?.name} 
+                action={() => setOptionSelected(option?.id)} 
+              />
+            ))}
+            <button className="w-full bg-button rounded-xl p-3 font-semibold cursor-pointer" onClick={sendOption}>Submit answer</button>
+          </div>
+        </main>
+      ) : (
+        <main className="flex flex-row justify-between p-16 mt-3">
+          <div className="basis-2/4 flex-col pl-10 mr-5">
+            <h3 className="font-normal text-3xl text-left placeholder-cyan-50">Quiz Completed <b className="block">You scored...</b></h3>
+          </div>
+          <div className="basis-2/4 p-4 rounded-xl bg-secondary">
+            <div className="flex flex-row">
+              <img className="w-10 h-10 align-middle mr-2" src={language?.icon} alt={language?.name} />
+              <p className="ml-4 font-normal text-2xl text-left placeholder-cyan-50">{language?.name}</p>
+            </div>
+            <div>
+              <p className="text-6xl font-bold placeholder-cyan-50 mt-4 text-center mb-3">{score}</p>
+              <p className="text-sm text-paragraph mt-4 text-center mb-4">out of {language?.questions?.length}</p>
+            </div>
+            <button className="w-full bg-button rounded-xl p-3 font-semibold cursor-pointer" onClick={() => router.push("/")}>Play Again</button>
+          </div>
+        </main>
       )}
     </div>
   );

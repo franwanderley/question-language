@@ -28,7 +28,7 @@
       },
       {
          "id": 3,
-         "name": "JS",
+         "name": "Javascript",
          "icon": "https://raw.githubusercontent.com/franwanderley/question-language/master/public/imgs/js.PNG",
          "questions": [
             {
