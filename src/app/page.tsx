@@ -37,10 +37,10 @@ export default function Home() {
           <ToggleTheme theme={true} />
         </div>
       </header>
-      <main className="flex flex-row justify-between p-12 mt-3">
-        <div className="basis-2/4 flex-col pl-10">
-        <h1 className="font-normal text-4xl text-left placeholder-cyan-50">Welcome to the <b className="block">Front-End Quiz</b></h1>
-        <p className="text-sm text-paragraph mt-4 text-left">Pick a subject to get started.</p>
+      <main className="flex flex-row max-sm:flex-col justify-between p-12 mt-3">
+        <div className="basis-2/4 flex-col pl-10 max-md:p-0">
+        <h1 className="font-normal text-4xl text-left max-md:text-center max-md:text-2xl placeholder-cyan-50">Welcome to the <b className="block max-md:inline-block">Front-End Quiz</b></h1>
+        <p className="text-sm max-md:mb-4 text-paragraph mt-4 text-left max-md:text-center">Pick a subject to get started.</p>
         </div>
         <div className="basis-2/4">
           {languages?.map(lan => (

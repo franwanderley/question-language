@@ -32,7 +32,6 @@ export default function Question({ params }: { params: { id: number } }) {
   const question = language?.questions?.[countQuestion];
 
   useEffect(() => {
-    console.log(time);
     if (time > 0) {
       countdownTimeout = setTimeout(() => {
         setTime(time - 1);
@@ -65,18 +64,18 @@ export default function Question({ params }: { params: { id: number } }) {
       <header className="w-screen flex flex-row justify-start p-12">
         <div className="flex flex-row basis-4/5">
          <img className="w-10 h-10 align-middle" src={language?.icon} alt={language?.name} />
-         <h2 className="ml-4 font-normal text-4xl text-left placeholder-cyan-50">{language?.name}</h2>
+         <h2 className="ml-4 font-normal text-4xl max-sm:text-xl text-left placeholder-cyan-50">{language?.name}</h2>
         </div>
         <div className="basis-1/5 flex justify-end">
           <ToggleTheme theme={true} />
         </div>
       </header>
-      {countQuestion < (language?.questions?.length || 0) && question ? (
-        <main className="flex flex-row justify-between p-12 mt-3">
-          <div className="basis-2/4 flex-col pl-10 mr-5">
-            <p className="text-xs text-paragraph mt-4 text-left mb-3">{`Question ${countQuestion + 1} of ${language?.questions?.length}`} </p>
-            <h3 className="font-normal text-3xl text-left placeholder-cyan-50">{question?.name}</h3>
-            <div className="w-96 bg-secondary p-1 mt-10 rounded-xl">
+      {countQuestion < (language?.questions?.length || 0) ? (
+        <main className="flex flex-row justify-between p-12 mt-3 max-sm:flex-col">
+          <div className="basis-2/4 flex-col pl-10 max-md:p-0 mr-5 max-md:m-0">
+            <p className="text-xs text-paragraph mt-4 text-left max-md:text-center mb-3">{`Question ${countQuestion + 1} of ${language?.questions?.length}`} </p>
+            <h3 className="font-normal max-md:text-center text-3xl mb-8 max-md:text-2xl text-left placeholder-cyan-50">{question?.name}</h3>
+            <div className="w-8/12 max-sm:w-full bg-secondary p-1 max-sm:mb-6 rounded-xl">
               <div className="bg-button p-1 rounded-xl" style={{width: `${time/60 * 100}%`}}/>
             </div>
           </div>
@@ -94,14 +93,14 @@ export default function Question({ params }: { params: { id: number } }) {
           </div>
         </main>
       ) : (
-        <main className="flex flex-row justify-between p-16 mt-3">
-          <div className="basis-2/4 flex-col pl-10 mr-5">
-            <h3 className="font-normal text-3xl text-left placeholder-cyan-50">Quiz Completed <b className="block">You scored...</b></h3>
+        <main className="flex flex-row justify-between p-16 mt-3 max-sm:flex-col">
+          <div className="basis-2/4 flex-col pl-10 max-md:p-0 mr-5 max-md:mr-0 max-md:mb-6">
+            <h3 className="font-normal max-md:text-center text-3xl max-md:text-2xl text-left placeholder-cyan-50">Quiz Completed <b className="block">You scored...</b></h3>
           </div>
           <div className="basis-2/4 p-4 rounded-xl bg-secondary">
             <div className="flex flex-row">
               <img className="w-10 h-10 align-middle mr-2" src={language?.icon} alt={language?.name} />
-              <p className="ml-4 font-normal text-2xl text-left placeholder-cyan-50">{language?.name}</p>
+              <p className="ml-4 font-normal text-2xl text-left max-md:text-center placeholder-cyan-50">{language?.name}</p>
             </div>
             <div>
               <p className="text-6xl font-bold placeholder-cyan-50 mt-4 text-center mb-3">{score}</p>

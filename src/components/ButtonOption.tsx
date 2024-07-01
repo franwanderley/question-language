@@ -16,7 +16,7 @@ export const ButtonOption = (props : ButtonOptionProps) => {
          onClick={props.action}
       >
          <img src={props.icon} className="w-10 h-10 align-middle" alt={props.text} />
-         <span className="bold text-xl ml-2">{props.text}</span>
+         <span className="bold text-xl max-md:text-sm ml-2">{props.text}</span>
       </button>
    );
 }
