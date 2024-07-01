@@ -4,21 +4,7 @@ import { ButtonOption } from "@/components/ButtonOption";
 import { ToggleTheme } from "@/components/Theme";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
-interface Language {
-  id: number;
-  name: string;
-  icon: string;
-  questions: {
-    id: number;
-    name: string;
-    correct: number;
-    options: {
-      id: number;
-      name: string;
-    }[];
-  }[];
-}
+import { Language } from "./types/Language";
 
 export default function Home() {
   const router = useRouter();
