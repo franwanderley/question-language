@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 
 export default function Question({ params }: { params: { id: number } }) {
   let countdownTimeout: NodeJS.Timeout;
-  const router = useRouter();
   const [language, setLanguage] = useState<Language>();
   const [time, setTime] = useState(60);
   const [countQuestion, setCountQuestion] = useState(0);
