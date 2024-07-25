@@ -1,20 +1,15 @@
-'use client'
+'use server'
 
 import { ButtonOption } from "@/components/ButtonOption";
 import { ToggleTheme } from "@/components/Theme";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { redirect } from "next/navigation";
 import { Language } from "./types/Language";
 
-export default function Home() {
-  const router = useRouter();
-  const [languages, setLanguages] = useState<Language[]>([]);
+export default async function Home() {
+  const languages: Language[] | null = await fetch("http://localhost:3333/language")
+    .then((response) => response.json())
+    .then((data) => data);
 
-  useEffect(() => {
-    fetch("http://localhost:3333/language")
-     .then((response) => response.json())
-     .then((data) => setLanguages(data));
-  }, []);
 
   return (
     <div className="flex min-h-screen flex-col flex-start bg-main">
@@ -30,7 +25,10 @@ export default function Home() {
         </div>
         <div className="basis-2/4">
           {languages?.map(lan => (
-            <ButtonOption marked={false} key={lan?.id} icon={lan?.icon} text={lan?.name} action={() => router.push(`/question/${lan.id}`)} />
+            <ButtonOption marked={false} key={lan?.id} icon={lan?.icon} text={lan?.name} action={() => {
+              'use server'
+              redirect(`/question/${lan.id}`);
+            }} />
           ))}
         </div>
       </main>
