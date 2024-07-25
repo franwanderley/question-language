@@ -2,10 +2,11 @@
 
 import { ButtonOption } from "@/components/ButtonOption";
 import { ToggleTheme } from "@/components/Theme";
-import { redirect } from "next/navigation";
 import { Language } from "./types/Language";
+import { LinkOption } from "@/components/LinkOption";
 
 export default async function Home() {
+
   const languages: Language[] | null = await fetch("http://localhost:3333/language")
     .then((response) => response.json())
     .then((data) => data);
@@ -25,10 +26,7 @@ export default async function Home() {
         </div>
         <div className="basis-2/4">
           {languages?.map(lan => (
-            <ButtonOption marked={false} key={lan?.id} icon={lan?.icon} text={lan?.name} action={() => {
-              'use server'
-              redirect(`/question/${lan.id}`);
-            }} />
+            <LinkOption key={lan?.id} icon={lan?.icon} text={lan?.name} router={`/question/${lan.id}`} />
           ))}
         </div>
       </main>
