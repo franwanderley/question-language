@@ -1,8 +1,8 @@
 'use server'
 
 import { ButtonOption } from "@/components/ButtonOption";
-import { ToggleTheme } from "@/components/Theme";
-import { Language } from "./types/Language";
+import { ToggleTheme } from "@/components/ToggleTheme";
+import { Language } from "../types/Language";
 import { LinkOption } from "@/components/LinkOption";
 
 export default async function Home() {
@@ -13,10 +13,10 @@ export default async function Home() {
 
 
   return (
-    <div className="flex min-h-screen flex-col flex-start bg-main">
+    <div className="flex min-h-screen flex-col flex-start bg-white dark:bg-main">
       <header className="w-screen flex flex-row justify-end p-12">
         <div className="basis-1/5 flex justify-end">
-          <ToggleTheme theme={true} />
+          <ToggleTheme />
         </div>
       </header>
       <main className="flex flex-row max-sm:flex-col justify-between p-12 mt-3">

@@ -1,4 +1,4 @@
-import { Language } from "@/app/types/Language";
+import { Language } from "@/types/Language";
 import { useRouter } from "next/navigation";
 
 export const ScoreQuestion = ({ language, score }: { language?: Language, score: number }) => {

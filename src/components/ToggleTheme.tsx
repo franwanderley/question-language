@@ -1,10 +1,15 @@
+'use client'
+import { ThemeContext } from "@/context/ThemeContext";
 import { MoonIcon, SunIcon } from "@heroicons/react/16/solid";
+import { useContext } from "react";
 
-export const ToggleTheme = ({ theme  }: { theme: boolean }) => {
+
+export const ToggleTheme = () => {
+   const {theme, setTheme} = useContext(ThemeContext);
    return (
       <div>
          <label className="inline-flex items-center cursor-pointer">
-            <input type="checkbox" checked={theme} className="sr-only peer" />
+            <input type="checkbox" checked={theme === 'dark'} className="sr-only peer" onChange={() => setTheme(old => old === 'dark' ? 'light' : 'dark')} />
             <span className="mr-3 text-sm font-medium">
                <SunIcon className="size-4 text-white-500" />
             </span>

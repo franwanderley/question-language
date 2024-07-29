@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { ThemeContext, ThemeProvider } from "@/context/ThemeContext";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
@@ -15,8 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <ThemeProvider>
+      <html lang="pt-BR">
+        <ThemeContext.Consumer>
+          {({ theme }) => (
+            <body className={[inter.className, theme === 'dark' ? 'dark' : ''].join(',')}>{children}</body>
+          )}
+        </ThemeContext.Consumer>
+      </html>
+    </ThemeProvider>
   );
 }

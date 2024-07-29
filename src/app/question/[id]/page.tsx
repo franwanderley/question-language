@@ -1,9 +1,9 @@
 'use client'
 
-import { Language } from "@/app/types/Language";
+import { Language } from "@/types/Language";
 import { ButtonOption } from "@/components/ButtonOption";
 import { ScoreQuestion } from "@/components/ScoreQuestion";
-import { ToggleTheme } from "@/components/Theme";
+import { ToggleTheme } from "@/components/ToggleTheme";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -53,7 +53,7 @@ export default function Question({ params }: { params: { id: number } }) {
          <h2 className="ml-4 font-normal text-4xl max-sm:text-xl text-left placeholder-cyan-50">{language?.name}</h2>
         </div>
         <div className="basis-1/5 flex justify-end">
-          <ToggleTheme theme={true} />
+          <ToggleTheme />
         </div>
       </header>
       {countQuestion < (language?.questions?.length || 0) ? (
