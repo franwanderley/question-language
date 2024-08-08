@@ -16,14 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider>
-      <html lang="pt-BR">
-        <ThemeContext.Consumer>
-          {({ theme }) => (
-            <body className={[inter.className, theme === 'dark' ? 'dark' : ''].join(',')}>{children}</body>
-          )}
-        </ThemeContext.Consumer>
-      </html>
-    </ThemeProvider>
+    <html lang="pt-BR">
+      <body className={inter.className}>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

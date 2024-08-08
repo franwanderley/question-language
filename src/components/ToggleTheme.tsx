@@ -11,11 +11,11 @@ export const ToggleTheme = () => {
          <label className="inline-flex items-center cursor-pointer">
             <input type="checkbox" checked={theme === 'dark'} className="sr-only peer" onChange={() => setTheme(old => old === 'dark' ? 'light' : 'dark')} />
             <span className="mr-3 text-sm font-medium">
-               <SunIcon className="size-4 text-white-500" />
+               <SunIcon className="size-4  dark:text-cyan-50 text-slate-900" />
             </span>
             <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 border-0 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-button"></div>
             <span className="ms-3 text-sm font-medium">
-               <MoonIcon className="size-4 text-white-500" />
+               <MoonIcon className="size-4 dark:text-cyan-50 text-slate-900" />
             </span>
          </label>
       </div>

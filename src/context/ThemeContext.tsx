@@ -8,7 +8,9 @@ export const ThemeProvider = ({children} : {children: ReactNode}) => {
   // ...
   return (
     <ThemeContext.Provider value={{theme, setTheme}}>
-      {children}
+      <div className={theme === 'dark' ? 'dark' : ''}>
+        {children}
+      </div>
     </ThemeContext.Provider>
   );
 };
